@@ -6,89 +6,40 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 10:38:25 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:46:05 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:29:40 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
+	char *conc;
+	int i;
+	int y;
 
 	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_create_str(int size, char **strs, char *sep)
-{
-	char	*str;
-	int		len;
-	int		i;
-
-	len = 0;
-	i = 0;
-	while (i < size)
-	{
-		len += ft_strlen(strs[i]);
-		i++;
-	}
-	len += ft_strlen(sep) * size - 1;
-	if (size <= 0)
-		len = 1;
-	str = (char *)malloc(sizeof(char) * len + 1);
-	if (!str)
+	conc = malloc(sizeof(char) *(ft_strlen((char*)s1) + ft_strlen((char*)s2) + 1));
+	if(!conc)
 		return (NULL);
-	return (str);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	*str;
-
-	str = ft_create_str(size, strs, sep);
-	i = -1;
-	k = 0;
-	while (++i < size)
+	while (s1[i])
 	{
-		j = 0;
-		while (strs[i][j])
-		{
-			str[k++] = strs[i][j];
-			j++;
-		}
-		j = 0;
-		while (sep[j] && i != size - 1)
-		{
-			str[k++] = sep[j];
-			j++;
-		}
+		conc[i] = s1[i];
+		i++;
 	}
-	str[k] = '\0';
-	return (str);
+	y = 0;
+	while (s2[y])
+	{
+		conc[i] = s2[y];
+		i++;
+		y++;
+	}
+	conc[i] = '\0';
+	return (conc);
 }
 
-/*int main()
-{
-	const char premier[] = "premier";
-	const char second [] = "second";
-	const char troisieme [] = "troisieme";
-
-	char *strs[] = { (char *)premier, (char *)second, (char *)troisieme };
-	printf("%s\n", ft_strjoin(12, strs, "stop"));
-}
-
-
-int		main(int argc, char **argv)
-{
-	(void) argc;
-	printf("%s\n", ft_strjoin(4, argv, "stop"));
-}
-*/
+// int main()
+// {
+// 	printf("%s", ft_strjoin("la", "bite"));
+// 	return (0);
+// }
