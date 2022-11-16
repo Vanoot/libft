@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 11:29:10 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 13:33:56 by cvan-oot         ###   ########.fr       */
+/*   Created: 2022/11/16 13:21:59 by cvan-oot          #+#    #+#             */
+/*   Updated: 2022/11/16 13:24:55 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, unsigned int n)
+void ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*dest;
-	unsigned int	i;
-
-	dest = s;
-	i = 0;
-	while (i++ < n)
-		*dest++ = 0;
+	ft_putstr_fd(ft_itoa(n), fd);
 }

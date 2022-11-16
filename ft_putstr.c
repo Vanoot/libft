@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:50:20 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:46:02 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:12:10 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 void	ft_putstr( char *str )
 {
-	int	size;
-
-	size = 0;
-	while (str[size])
-		size++;
-	write(1, str, size);
+	write(1, str, ft_strlen(str));
 }

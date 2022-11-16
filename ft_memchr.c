@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:20:09 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/14 15:58:03 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:50:09 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void *	ft_memchr(const void * memoryBlock, int searchedChar, unsigned int size)
 {
-	int	i;
-	char * tmp;
+	char 			* tmp;
 
-	i = 0;
-	tmp = memoryBlock;
-	while (i < size)
+	searchedChar = (char)searchedChar;
+	tmp = (char*)memoryBlock;
+	while (size)
 	{
-		if (tmp[i] == searchedChar)
-			return (tmp[i]);
-		i++;
+		if (*tmp == searchedChar)
+			return ((void*)tmp);
+		tmp++;
+		size--;
 	}
 	return (NULL);
 }

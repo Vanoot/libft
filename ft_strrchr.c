@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:40:54 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/14 14:47:14 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:45:33 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *str, int c)
 	i = ft_strlen(str);
 	while(i >=0)
 	{
-		if (str[i] == (char)c)
+		if (str[i] == c)
 			return ((char)str + i);
 		i--;
 	}

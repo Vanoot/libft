@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 13:40:30 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 14:49:01 by cvan-oot         ###   ########.fr       */
+/*   Created: 2022/11/16 12:48:19 by cvan-oot          #+#    #+#             */
+/*   Updated: 2022/11/16 15:12:37 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, unsigned int len)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int i;
-	int y;
-	int sizelittle;
-	char *rbig;
+	int		i;
+	char	*newstr;
 
 	i = 0;
-	rbig = (char *)big;
-	sizelittle = ft_strlen((char*)little);
-	if (sizelittle == 0 || big == little)
-		return (rbig);
-	while (big[i] && i < len)
+	newstr = ft_strdup((char*)s);
+	if (!newstr)
+		return (NULL);
+	while (newstr[i])
 	{
-		y = 0;
-		while (rbig[i + y] && little[i] && (i + y) < len && rbig[i + y] == little[i])
-			y++;
-		if (y == sizelittle)
-			return (rbig + i);
+		(*f)(i, newstr[i]);
 		i++;
 	}
-	return (0);
+	return (newstr);
 }

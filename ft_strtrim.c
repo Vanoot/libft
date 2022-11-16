@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:39:00 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 11:44:27 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:11:58 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	getstart(char const *s1, char const *set)
 	int size;
 
 	i = 0;
-	size = ft_strlen(s1);
+	size = ft_strlen((char*)s1);
 	while (i < size)
 	{
 		if (ft_strchr(set, s1[i]) == 0)
@@ -33,7 +33,8 @@ int	getend(char const *s1, char const *set)
 	int i;
 	int size;
 
-	size = ft_strlen(s1);
+	i = 0;
+	size = ft_strlen((char*)s1);
 	while (i < size)
 	{
 		if (ft_strchr(set, s1[size - i - 1]) == 0)
@@ -47,12 +48,12 @@ char *ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
-	char	newstr;
+	char	*newstr;
 
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
-		return (ft_strdup(s1));
+		return (ft_strdup((char*)s1));
 	start = getstart(s1, set);
 	end = getend(s1, set);
 	if (start >= end)
@@ -60,6 +61,6 @@ char *ft_strtrim(char const *s1, char const *set)
 	newstr = (char *)malloc(sizeof(char) * end - start + 1);
 	if (!newstr)
 		return (NULL);
-	ft_strlcpy(newstr, s1 + start, end - start +1);
+	ft_strlcpy(newstr, (char*)(s1 + start), end - start +1);
 	return (newstr);
 }

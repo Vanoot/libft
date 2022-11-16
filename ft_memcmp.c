@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:24:04 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/14 15:58:02 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:36:36 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 int ft_memcmp( const void * pointer1, const void * pointer2, unsigned int size)
 {
-	char	* first;
-	char	* second;
-	int i;
+	int	result;
 
-	i = 0;
-	first = pointer1;
-	second = pointer2;
-	while (i < size)
+	while (size)
 	{
-		if (first[i] != second[i])
-			return (first[i] - second[i]);
-		i++;
+		result = *(char*)pointer1++ - *(char*)pointer2++;
+		if (result !=0)
+			return (result);
+		size--;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:16:44 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:46:01 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:21:55 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *dest, int value, unsigned int count)
 
 	newdest = dest;
 	i = 0;
-	while (i++ < count)
-		newdest[i] = value;
+	while (i < count)
+		newdest[i++] = value;
 	return (newdest);
 }

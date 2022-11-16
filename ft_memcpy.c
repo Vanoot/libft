@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:38:42 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:45:59 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:46:06 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	*ft_memcpy(void	*dest, const void	*src, unsigned int n)
 	dest2 = dest;
 	src2 = (unsigned char *)src;
 	i = 0;
-	while (i++ < n)
+	while (i < n)
 	{
 		dest2[i] = src2[i];
+		i++;
 	}
 	return (dest);
 }

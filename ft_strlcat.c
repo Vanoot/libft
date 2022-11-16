@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:19:59 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 17:04:45 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:43:09 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
 	unsigned int	c;
 	unsigned int	d;
 
-	if (size <= ft_strlen(dst))
-		return (size + ft_strlen(src));
+	if ((int)size <= ft_strlen(dst))
+		return (size + ft_strlen((char*)src));
 	c = ft_strlen(dst);
 	d = 0;
 	while (src[d] && c + 1 < size)
@@ -28,7 +28,7 @@ unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
 		d++;
 	}
 	dst[c] = '\0';
-	return (ft_strlen(dst) + ft_strlen(&src[d]));
+	return (c + d);
 }
 
 /*int main(void)

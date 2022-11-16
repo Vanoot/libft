@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:44:05 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:45:54 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:34:40 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void *	ft_calloc(unsigned int elementcount, unsigned int elementsize)
 	tmp = malloc(elementcount * elementsize);
 	if (!tmp)
 		return (NULL);
-	ft_bezero(tmp, elementcount * elementsize);
+	ft_bzero(tmp, elementcount * elementsize);
 	return (tmp);
 }
