@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:30:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 13:22:32 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:12:54 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int	ft_strlen(char *str);
 int ft_strncmp( const char * first, const char * second, unsigned int length );
 char	*ft_strnstr(const char *big, const char *little, unsigned int len);
-char	*ft_strchr(const char *str, int c);
+char * strchr( const char * str, int c );
 char *ft_substr(char const *s, unsigned int start, size_t len);
 void	ft_swap(int *a, int *b);
 int	ft_tolower(int ch);
