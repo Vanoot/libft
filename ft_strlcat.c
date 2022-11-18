@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:19:59 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/17 15:40:17 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:21:25 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	c;
 	unsigned int	d;
-	unsigned int ret;
+	unsigned int	ret;
 
-	if ((int)size <= ft_strlen(dst))
-		return (size + ft_strlen((char*)src));
+	if (size <= ft_strlen(dst))
+		return (size + ft_strlen(src));
 	c = ft_strlen(dst);
 	d = 0;
 	if (size > c)
-		ret = ft_strlen((char*)src) + c;
+		ret = ft_strlen(src) + c;
 	else 
-		ret = ft_strlen((char*)src) + size;
+		ret = ft_strlen(src) + size;
 	while (src[d] && c + 1 < size)
 	{
 		dst[c] = src[d];

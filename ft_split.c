@@ -6,21 +6,11 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:38:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:46:03 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:18:12 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	char_is_in_charset(char c, char *charset)
 {

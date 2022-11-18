@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:00:52 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/17 15:40:16 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:13:45 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-		(*f)(i, s);
+		(*f)(i, s + i);
 		i++;
 	}
 }

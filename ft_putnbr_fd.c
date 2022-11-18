@@ -6,13 +6,17 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:21:59 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 13:24:55 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:58:17 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	char	*str;
+
+	str = ft_itoa(n);
+	ft_putstr_fd(str, fd);
+	free (str);
 }

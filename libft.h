@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:30:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/17 15:12:54 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:35:00 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 int	ft_atoi(char *str);
 void	ft_bzero(void *s, unsigned int n);
 void *	ft_calloc(unsigned int elementcount, unsigned int elementsize);
@@ -33,9 +34,9 @@ void	ft_putstr( char *str );
 char	**ft_split(char *str, char *charset);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(char *src);
-unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size);
+unsigned int	ft_strlcat(char *dst, const char *src, size_t size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-int	ft_strlen(char *str);
+size_t	ft_strlen( const char *str);
 int ft_strncmp( const char * first, const char * second, unsigned int length );
 char	*ft_strnstr(const char *big, const char *little, unsigned int len);
 char * strchr( const char * str, int c );

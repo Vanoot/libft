@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:13:41 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 15:08:52 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:22:11 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	rest = (char*)malloc(sizeof(char) * (len +1));
 	if (!rest)
 		return (NULL);
-	else if (ft_strlen((char*)s) < (int)start)
+	else if (ft_strlen(s) < start)
 		return ("");
 	else if (start == 0)
 		return ((char*)s);
-	while ((int)start < ft_strlen((char*)s))
+	while (start < ft_strlen(s))
 		rest[i++] = s[start++];
 	return (rest);
 }

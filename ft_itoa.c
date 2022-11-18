@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:01:37 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 12:48:03 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:53:29 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,24 @@ char *ft_itoa(int n)
 {
 	char	*str;
 	int		i;
-	int		nb;
+	long	nb;
 
 	nb = n;
 	i = countdigit(nb);
-	str = malloc(sizeof(char) * i + 1);
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
+	if (n == INT_MAX)
+		return (ft_strdup("2147483647"));
+	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i--] = 0;
 	if (nb == 0)
 	{
+		free (str);
 		str = calloc(2, sizeof(char));
+		if (!str)
+			return (NULL);
 		str[0] = 48;
 	}
 	if (nb < 0)

@@ -6,13 +6,13 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:51:50 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/08 16:46:07 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:17:07 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen( const char *str)
 {
 	int	count;
 
