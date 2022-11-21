@@ -6,13 +6,13 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:09:28 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 13:11:42 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:12:25 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 }

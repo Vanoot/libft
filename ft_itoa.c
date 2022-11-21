@@ -6,31 +6,42 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:01:37 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/18 16:53:29 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:08:25 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countdigit(int i)
+static char	*minmax(int n)
 {
-	int count;
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
+	if (n == INT_MAX)
+		return (ft_strdup("2147483647"));
+	return (ft_strdup("0"));
+}
 
+static	int	countdigit(int i)
+{
+	int	count;
+
+	if (i == 0)
+		return (1);
 	count = 0;
-	if(i < 0)
+	if (i < 0)
 	{
 		i *= -1;
 		count++;
 	}
 	while (i > 0)
 	{
-		i/= 10;
+		i /= 10;
 		count++;
 	}
 	return (count);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
@@ -38,22 +49,12 @@ char *ft_itoa(int n)
 
 	nb = n;
 	i = countdigit(nb);
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
-	if (n == INT_MAX)
-		return (ft_strdup("2147483647"));
+	if (n == INT_MIN || n == INT_MAX || n == 0)
+		return (minmax(n));
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i--] = 0;
-	if (nb == 0)
-	{
-		free (str);
-		str = calloc(2, sizeof(char));
-		if (!str)
-			return (NULL);
-		str[0] = 48;
-	}
 	if (nb < 0)
 	{
 		str[0] = '-';

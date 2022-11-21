@@ -6,13 +6,13 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:00:52 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/18 16:13:45 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:21:19 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int		i;
 

@@ -6,13 +6,13 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:16:43 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/18 16:43:06 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:00:43 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		neg;
 	int		i;

@@ -6,7 +6,7 @@
 #    By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 18:32:23 by cvan-oot          #+#    #+#              #
-#    Updated: 2022/11/16 14:42:09 by cvan-oot         ###   ########.fr        #
+#    Updated: 2022/11/21 15:40:46 by cvan-oot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ ft_strlcat.c \
 ft_strlcpy.c \
 ft_strncmp.c \
 ft_strnstr.c \
-ft_strchr.c \
+ft_strrchr.c \
 ft_substr.c \
 ft_swap.c \
 ft_tolower.c \

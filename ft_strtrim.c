@@ -6,45 +6,45 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:39:00 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 15:11:58 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:25:51 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	getstart(char const *s1, char const *set)
+static	int	getstart(char const *s1, char const *set)
 {
 	int	i;
-	int size;
+	int	size;
 
 	i = 0;
-	size = ft_strlen((char*)s1);
+	size = ft_strlen((char *)s1);
 	while (i < size)
 	{
 		if (ft_strchr(set, s1[i]) == 0)
-			break;
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-int	getend(char const *s1, char const *set)
+static	int	getend(char const *s1, char const *set)
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	i = 0;
-	size = ft_strlen((char*)s1);
+	size = ft_strlen((char *)s1);
 	while (i < size)
 	{
 		if (ft_strchr(set, s1[size - i - 1]) == 0)
-			break;
+			break ;
 		i++;
 	}
 	return (size - i);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
@@ -53,7 +53,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
-		return (ft_strdup((char*)s1));
+		return (ft_strdup((char *)s1));
 	start = getstart(s1, set);
 	end = getend(s1, set);
 	if (start >= end)
@@ -61,6 +61,6 @@ char *ft_strtrim(char const *s1, char const *set)
 	newstr = (char *)malloc(sizeof(char) * end - start + 1);
 	if (!newstr)
 		return (NULL);
-	ft_strlcpy(newstr, (char*)(s1 + start), end - start +1);
+	ft_strlcpy(newstr, (char *)(s1 + start), end - start +1);
 	return (newstr);
 }

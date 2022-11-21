@@ -5,98 +5,96 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 14:38:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/18 16:18:12 by cvan-oot         ###   ########.fr       */
+/*   Created: 2022/08/25 15:38:21 by cvan-oot          #+#    #+#             */
+/*   Updated: 2022/11/21 15:56:06 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	char_is_in_charset(char c, char *charset)
+static	void	free_all(char **tab)
 {
 	int	i;
 
-	i = -1;
-	while (charset[++i])
-		if (charset[i] == c)
-			return (1);
-	return (0);
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }
 
-int	get_ac(char *str, char *charset)
+static	int	nbrwords(char const *s, char c)
 {
-	int	i;
+	int	tmp;
 	int	count;
 
+	tmp = 0;
 	count = 0;
-	i = 0;
-	while (str[i])
+	while (*s)
 	{
-		while (char_is_in_charset(str[i], charset))
-			i++;
-		if (!char_is_in_charset(str[i], charset) && str[i])
+		if (tmp == 0 && *s != c)
 		{
+			tmp = 1;
 			count++;
-			while (!char_is_in_charset(str[i], charset) && str[i])
-				i++;
 		}
+		else if (*s == c)
+			tmp = 0;
+	s++;
 	}
-	return (count + 1);
+	return (count);
 }
 
-char	*get_next_word(int *index, char *str, char *charset)
+static	char	*write_str(const char *s, int start, int end)
 {
-	int		len;
-	char	*res;
+	char	*str;
 	int		i;
 
 	i = 0;
-	len = 0;
-	while (char_is_in_charset(str[*index], charset))
-		(*index)++;
-	while (!char_is_in_charset(str[*index + len], charset) && str[*index + len])
-		len++;
-	res = malloc((len + 1) * sizeof(char));
-	if (!res)
+	str = malloc(sizeof(char) * (end - start + 1));
+	if (!str)
 		return (NULL);
-	while (i < len)
-	{
-		res[i++] = str[*index];
-		*index = *index + 1;
-	}
-	res[i] = 0;
-	return (res);
+	while (start < end)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }
 
-char	**ft_split(char *str, char *charset)
+static	char	**splitloop(char const *s, char c, char **tab)
 {
-	char	**res;
-	int		ac;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	y;
+	int		index;
 
+	index = -1;
 	i = 0;
-	j = 0;
-	ac = get_ac(str, charset);
-	res = malloc(ac * sizeof(char *));
-	if (!res)
-		return (NULL);
-	while (i < ac - 1)
-		res[i++] = get_next_word(&j, str, charset);
-	res[i] = 0;
-	return (res);
-}
-
-/*#include <stdio.h>
-int main()
-{
-	int i;
-	char **split;
-	split = ft_split("Le suspense--est---insoutenable", "-");
-	i = 0;
-	while(split[i])
+	y = 0;
+	while (i <= ft_strlen(s))
 	{
-		printf("%s \n",split[i]);
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			tab[y++] = write_str(s, index, i);
+			if (!tab[y - 1])
+			{
+				free_all(tab);
+				return (NULL);
+			}
+			index = -1;
+		}
 		i++;
 	}
-}*/
+	tab[y] = NULL;
+	return (tab);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc((nbrwords(s, c) + 1) * sizeof(char *));
+	if (!tab)
+		return (NULL);
+	return (splitloop(s, c, tab));
+}

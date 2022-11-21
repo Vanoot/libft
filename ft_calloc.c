@@ -6,15 +6,15 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:44:05 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/16 13:34:40 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:33:03 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *	ft_calloc(unsigned int elementcount, unsigned int elementsize)
+void	*ft_calloc(unsigned int elementcount, unsigned int elementsize)
 {
-	void *tmp;
+	void	*tmp;
 
 	tmp = malloc(elementcount * elementsize);
 	if (!tmp)
