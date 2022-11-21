@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:30:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/21 15:38:01 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:19:42 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, unsigned int n);
