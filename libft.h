@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:30:03 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/21 16:19:42 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:19:12 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+void		ft_lstclear(t_list **lst, void (*del)(void*));
+void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstiter(t_list *lst, void (*f)(void *));
+t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list		*ft_lstnew(void *content);
+int			ft_lstsize(t_list *lst);
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, unsigned int n);
 void		*ft_calloc(unsigned int elementcount, unsigned int elementsize);

@@ -6,11 +6,9 @@
 #    By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 18:32:23 by cvan-oot          #+#    #+#              #
-#    Updated: 2022/11/21 15:40:46 by cvan-oot         ###   ########.fr        #
+#    Updated: 2022/11/23 12:49:47 by cvan-oot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = libft.a
 
 SRCS = ft_strlen.c \
 ft_atoi.c \
@@ -48,26 +46,48 @@ ft_striteri.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
-ft_putnbr_fd.c
+ft_putnbr_fd.c \
 
-OBJS = ${SRCS:.c=.o}
+BSRC = ft_lstadd_back.c \
+ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_front.c \
+ft_lstdelone.c \
+ft_lstclear.c \
+ft_lstiter.c \
+ft_lstmap.c \
 
-HEADERS = includes/
+OBJS	= ${SRCS:.c=.o}
 
-.c.o:
-	gcc -Wall -Wextra -Werror -I ${HEADERS} -c $< -o ${<:.c=.o}
+BONUS	= ${BSRC:.c=.o}
 
-${NAME}: ${OBJS}
-	ar rc ${NAME} ${OBJS}
+NAME	= libft.a
 
-all: ${NAME}
+LIB	= ar rc
+CC	= cc
+RM	= rm -f
+
+CFLAGS	= -Wall -Werror -Wextra
+
+.c.o :
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+${NAME}:	${OBJS}
+		${LIB} ${NAME} ${OBJS}
+
+all:		${NAME} bonus
 
 clean:
-	rm -rf ${OBJS}
+		${RM} ${OBJS} ${BONUS}
 
-fclean: clean
-	rm -rf $(NAME)
-	
-re: fclean all
+fclean:		clean
+		${RM} ${NAME}
 
-.PHONY: all clean fclean re
+re:		fclean all
+
+bonus:		${NAME} ${BONUS}
+		${LIB} ${NAME} ${BONUS}
+
+.PHONY:	clean re fclean

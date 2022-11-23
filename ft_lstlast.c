@@ -6,13 +6,13 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:20:46 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/21 16:23:59 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:33:24 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst)
 	{

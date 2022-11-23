@@ -6,7 +6,7 @@
 /*   By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:24:24 by cvan-oot          #+#    #+#             */
-/*   Updated: 2022/11/21 16:31:27 by cvan-oot         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:54:34 by cvan-oot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	*lst = lstlast(*lst);
-	(*lst)->next = new;
-	new->next = NULL;
+	t_list	*t;
+
+	if (*lst)
+	{
+		t = ft_lstlast(*lst);
+		t->next = new;
+	}
+	else
+		*lst = new;
 }
