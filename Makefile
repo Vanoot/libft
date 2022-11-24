@@ -6,7 +6,7 @@
 #    By: cvan-oot <cvan-oot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 18:32:23 by cvan-oot          #+#    #+#              #
-#    Updated: 2022/11/23 12:49:47 by cvan-oot         ###   ########.fr        #
+#    Updated: 2022/11/24 13:35:03 by cvan-oot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,4 +90,4 @@ re:		fclean all
 bonus:		${NAME} ${BONUS}
 		${LIB} ${NAME} ${BONUS}
 
-.PHONY:	clean re fclean
+.PHONY:	clean re fclean bonus
